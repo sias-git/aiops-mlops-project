@@ -1,0 +1,7 @@
+hopsworks[python]
+pyarrow
+pandas
+dotenv
+openmeteo-requests
+requests-cache 
+retry-requests
