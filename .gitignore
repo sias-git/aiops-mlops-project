@@ -1,6 +1,7 @@
 # Additional 
 # Probably Hopsworks uses sqlite in the library
 .cache.sqlite
+tmp/
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
