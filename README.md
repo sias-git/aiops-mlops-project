@@ -64,12 +64,15 @@ This MLOps Project is about setting up a weather prediction system. It includes 
 ### Installation
 ```bash
 uv venv # To initiate a python 3.13 Version for the venv
-source .venv/bin/activate.fish
+source .venv/bin/activate.fish (or other activation scripts depending on OS and shell)
 python -m ensurepip
 pip install -r requirements.txt
 ```
 
 ### Running the Pipelines
+For the pipelines to run successfully they have to be run consecutetively. 
+Each run of the feature pipeline that creates new features will increment the common version with a new feature view. 
+Existing versions of objects are not overwritten or deleted. 
 1. **Feature Pipeline:**
    ```bash
    jupyter notebook F_Open_Meteo.ipynb
@@ -94,6 +97,14 @@ pip install -r requirements.txt
 - **Data Quality:** The model's performance is limited by the quality and quantity of data from the Open Meteo API.
 - **Feature Engineering:** Randomly generated features may not capture real-world variability accurately.
 - **Model Choice:** A Random Forest Classifier was chosen for its simplicity and interpretability, but other models may perform better with more data.
+- **Versioning:** Feature Views, Feature Groups, Training Datasets, Models use the same version. The initial Idea was that it can be easily tracked which step has failed and that especially inferencing always uses a valid dataset. However there is no implemenation yet to hold back a new version and there is no quality gate. The extended use of labels could be a basic improvement.
+
+# Expansion stages
+- Hopsworks is used as a feature store. 
+- No persistent local data is required except for the credentials. A lockenv could be used.
+- Test and Train split is performed in hopsworks and locally for reference
+- Trained models are deployed to hopsworks and pulled for inference
+
 
 # Future Improvements
 - **Data Collection:** Incorporate additional data sources to improve model accuracy.
