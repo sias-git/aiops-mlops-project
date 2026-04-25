@@ -94,19 +94,20 @@ Existing versions of objects are not overwritten or deleted.
 - **Code Structure:** Organized into separate files for each pipeline.
 
 # Reflexion and Limitation
-- **Data Quality:** The model's performance is limited by the quality and quantity of data from the Open Meteo API.
+- **Data Quality:** The model's performance is limited by the quality and quantity of data from the Open Meteo API. Only the free forecast api was used so there are no real labels, only undefined historic forecasts.
 - **Feature Engineering:** Randomly generated features may not capture real-world variability accurately.
 - **Model Choice:** A Random Forest Classifier was chosen for its simplicity and interpretability, but other models may perform better with more data.
 - **Versioning:** Feature Views, Feature Groups, Training Datasets, Models use the same version. The initial Idea was that it can be easily tracked which step has failed and that especially inferencing always uses a valid dataset. However there is no implemenation yet to hold back a new version and there is no quality gate. The extended use of labels could be a basic improvement.
+- **Feature Backpropagation**: User Input is currently simulated with random values. Using these values and the labels does not make sense. 
 
-# Expansion stages
+# Implemented Expansion stages
 - Hopsworks is used as a feature store. 
 - No persistent local data is required except for the credentials. A lockenv could be used.
 - Test and Train split is performed in hopsworks and locally for reference
 - Trained models are deployed to hopsworks and pulled for inference
 
-
 # Future Improvements
 - **Data Collection:** Incorporate additional data sources to improve model accuracy.
 - **Feature Engineering:** Use more sophisticated methods to derive features from raw data.
 - **Model Tuning:** Experiment with different models and hyperparameters to improve performance.
+- **Data Validation**: Improve Data Validation with Great Expectations framework
