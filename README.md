@@ -1,7 +1,7 @@
 # aiops_mlops_project
 
 # About
-This MLOps Project is about setting up a weather prediction system. It includes three pipelines: a feature pipeline, a training pipeline, and an inference pipeline. The feature pipeline updates weather data with data from the last 64 days (maximum the Open Meteo API returns with the free prediction API) and concatenates this data to create a dataset with all the available data since the pipeline was initially run for the first time.
+This MLOps Project is about setting up a weather prediction system for the near future. It includes three pipelines: a feature pipeline, a training pipeline, and an inference pipeline. The feature pipeline updates weather data with data from the last 64 days (maximum the Open Meteo API returns with the free prediction API) and concatenates this data to create a dataset with all the available data since the pipeline was initially run for the first time.
 
 # Features and Labels
 
@@ -25,7 +25,7 @@ This MLOps Project is about setting up a weather prediction system. It includes 
   - pressure_msl
 
 ### Labels
-- The target variable for prediction is the weather condition (e.g., sunny, rainy, cloudy).
+  - precipation_label (weather it should be raining within the next 2 hours)
 
 # Pipelines
 
