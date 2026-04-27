@@ -58,8 +58,9 @@ This MLOps Project is about setting up a weather prediction system. It includes 
 # Setup and Execution
 
 ### Prerequisites
-- Python 3.13
+- Python 3.13 or a python venv manager that can provide python 3.13
 - Dependencies listed in `pyproject.toml`
+- Hopsworks API Key in .env file
 
 ### Installation
 ```bash
